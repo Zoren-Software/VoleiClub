@@ -1,5 +1,5 @@
 
-extend type Mutation  {
+extend type Mutation @guard{
     specificFundamentalCreate(
         name: String!
         userId: Int! @rename(attribute: "user_id")

@@ -1,0 +1,19 @@
+
+extend type Mutation @guard{
+    positionCreate(
+        name: String!
+        userId: Int! @rename(attribute: "user_id")
+    ): Position
+    @field(resolver: "PositionMutation@create") 
+    @validator
+    @can(ability: "create")
+
+    positionEdit(
+        id: Int!
+        name: String!
+        userId: Int! @rename(attribute: "user_id") 
+    ): Position
+    @field(resolver: "PositionMutation@edit")
+    @validator
+    @can(ability: "edit")
+}
